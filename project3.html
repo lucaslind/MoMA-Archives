@@ -1,0 +1,2391 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Sketch 1</title>
+        <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+        <style type="text/css">
+            /* Any CSS style rules can go here */
+        </style>
+    </head>
+    <body>
+
+        <script type="text/javascript">
+
+ 
+var dataset = 
+            [
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/109/w500h420/CRI_151109.jpg",
+          "alt": "Odilon Redon. Apache (Man on Horseback). c. 1875"
+        },
+        "date": "c. 1875"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/131/w500h420/CRI_151131.jpg",
+          "alt": "Odilon Redon. Landscape at Daybreak. 1872"
+        },
+        "date": "1872"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/148/w500h420/CRI_239148.jpg",
+          "alt": "Paul Cézanne. Self-Portrait in a Straw Hat. 1875-76"
+        },
+        "date": "1875-76"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/117/w500h420/CRI_151117.jpg",
+          "alt": "Odilon Redon. Fishing Boat. c. 1875"
+        },
+        "date": "c. 1875"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/110/w500h420/CRI_151110.jpg",
+          "alt": "Odilon Redon. Apache (Man on Horseback II). (c. 1875)"
+        },
+        "date": "(c. 1875)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/139/w500h420/CRI_151139.jpg",
+          "alt": "Odilon Redon. The Rocky Slope. c. 1875"
+        },
+        "date": "c. 1875"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/143/w500h420/CRI_151143.jpg",
+          "alt": "Odilon Redon. Landscape with Rocks, near Royan. c. 1875"
+        },
+        "date": "c. 1875"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/134/w500h420/CRI_151134.jpg",
+          "alt": "Odilon Redon. Rocky Peak. c. 1875"
+        },
+        "date": "c. 1875"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/549/w500h420/CRI_226549.jpg",
+          "alt": "Auguste Rodin. St. John the Baptist Preaching. 1878-80 (cast 1921)"
+        },
+        "date": "1878-80 (cast 1921)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/637/w500h420/CRI_186637.jpg",
+          "alt": "Paul Cézanne. L'Estaque. 1879-83"
+        },
+        "date": "1879-83"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/334/w500h420/CRI_182334.jpg",
+          "alt": "Paul Cézanne. Milk Can and Apples. 1879-80"
+        },
+        "date": "1879-80"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/463/w500h420/CRI_151463.jpg",
+          "alt": "Paul Cézanne. Still Life with Fruit Dish. 1879-80"
+        },
+        "date": "1879-80"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/251/w500h420/CRI_212251.jpg",
+          "alt": "Auguste Rodin. The Three Shades. 1881-86"
+        },
+        "date": "1881-86"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/150/w500h420/CRI_239150.jpg",
+          "alt": "Édouard Manet. Two Roses on a Tablecloth. 1882-83"
+        },
+        "date": "1882-83"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/115/w500h420/CRI_151115.jpg",
+          "alt": "Odilon Redon. Trees in the Blue Sky. c. 1883"
+        },
+        "date": "c. 1883"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/405/w500h420/CRI_242405.jpg",
+          "alt": "Claude Monet. On the Cliff at Pourville, Clear Weather. 1882"
+        },
+        "date": "1882"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/396/w500h420/CRI_70396.jpg",
+          "alt": "Medardo Rosso. The Concierge. 1883"
+        },
+        "date": "1883"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/145/w500h420/CRI_151145.jpg",
+          "alt": "Odilon Redon. Rocks on the Beach. c. 1883"
+        },
+        "date": "c. 1883"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/615/w500h420/CRI_168615.jpg",
+          "alt": "Auguste Rodin. The Walking Man. c. 1890-95 (cast c.1904)"
+        },
+        "date": "c. 1890-95 (cast c.1904)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/098/w500h420/CRI_151098.jpg",
+          "alt": "Paul Cézanne. The Bather. c. 1885"
+        },
+        "date": "c. 1885"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/207/w500h420/CRI_159207.jpg",
+          "alt": "Georges-Pierre Seurat. Grandcamp, Evening. 1885, painted border c. 1888-89"
+        },
+        "date": "1885, painted border c. 1888-89"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/760/w500h420/CRI_80760.jpg",
+          "alt": "Georges-Pierre Seurat. Evening, Honfleur. 1886"
+        },
+        "date": "1886"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/838/w500h420/CRI_149838.jpg",
+          "alt": "James Ensor. Tribulations of Saint Anthony. 1887"
+        },
+        "date": "1887"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/090/w500h420/CRI_151090.jpg",
+          "alt": "Paul Cézanne. Boy in a Red Vest. 1888-90"
+        },
+        "date": "1888-90"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/833/w500h420/CRI_149833.jpg",
+          "alt": "James Ensor. Masks Confronting Death. 1888"
+        },
+        "date": "1888"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/977/w500h420/CRI_150977.jpg",
+          "alt": "Émile Bernard. Iron Bridges at Asnières. 1887"
+        },
+        "date": "1887"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/346/w500h420/CRI_151346.jpg",
+          "alt": "Paul Gauguin. Still Life with Three Puppies. 1888"
+        },
+        "date": "1888"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/094/w500h420/CRI_241094.jpg",
+          "alt": "Paul Gauguin. Washerwomen. Arles 1888"
+        },
+        "date": "Arles 1888"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/414/w500h420/CRI_151414.jpg",
+          "alt": "Claude Monet. Poplars at Giverny, Sunrise. 1888"
+        },
+        "date": "1888"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/154/w500h420/CRI_239154.jpg",
+          "alt": "Henri de Toulouse-Lautrec. Mme Lili Grenier. 1888"
+        },
+        "date": "1888"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/248/w500h420/CRI_151248.jpg",
+          "alt": "Paul Gauguin. Portrait of Jacob Meyer de Haan. 1889"
+        },
+        "date": "1889"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/008/w500h420/CRI_151008.jpg",
+          "alt": "Georges-Pierre Seurat. Port-en-Bessin, Entrance to the Harbor. 1888"
+        },
+        "date": "1888"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/075/w500h420/CRI_133075.jpg",
+          "alt": "Vincent van Gogh. The Starry Night. Saint Rémy, June 1889"
+        },
+        "date": "Saint Rémy, June 1889"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/547/w500h420/CRI_263547.jpg",
+          "alt": "Vincent van Gogh. The Olive Trees. Saint Rémy, June-July 1889"
+        },
+        "date": "Saint Rémy, June-July 1889"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/939/w500h420/CRI_150939.jpg",
+          "alt": "Édouard Vuillard. Dinnertime. c. 1889"
+        },
+        "date": "c. 1889"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/909/w500h420/CRI_235909.jpg",
+          "alt": "Georges-Pierre Seurat. The Channel at Gravelines, Evening Marine avec des ancres. summer 1890"
+        },
+        "date": "summer 1890"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/332/w500h420/CRI_211332.jpg",
+          "alt": "Auguste Rodin. Bust of the Young Balzac. 1891 (cast c. 1971)"
+        },
+        "date": "1891 (cast c. 1971)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/515/w500h420/CRI_151515.jpg",
+          "alt": "Paul Signac. Opus 217. Against the Enamel of a Background Rhythmic with Beats and Angles, Tones, and Tints, Portrait of M. Félix Fénéon in 1890. 1890"
+        },
+        "date": "1890"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/737/w500h420/CRI_211737.jpg",
+          "alt": "Auguste Rodin. Balzac in a Frock Coat. 1891 (cast 1971)"
+        },
+        "date": "1891 (cast 1971)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/832/w500h420/CRI_149832.jpg",
+          "alt": "Auguste Rodin. Mask of Balzac Smiling. 1891 (cast 1970)"
+        },
+        "date": "1891 (cast 1970)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/253/w500h420/CRI_241253.jpg",
+          "alt": "Eugène Carrière. Maternity. c. 1892"
+        },
+        "date": "c. 1892"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/392/w500h420/CRI_151392.jpg",
+          "alt": "Paul Signac. Setting Sun. Sardine Fishing. Adagio. Opus 221 from the series The Sea, The Boats, Concarneau. 1891"
+        },
+        "date": "1891"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/093/w500h420/CRI_241093.jpg",
+          "alt": "Paul Gauguin. The Seed of the Areoi. 1892"
+        },
+        "date": "1892"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/047/w500h420/CRI_157047.jpg",
+          "alt": "Roderic O'Conor. The Glade. 1892"
+        },
+        "date": "1892"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/615/w500h420/CRI_229615.jpg",
+          "alt": "Medardo Rosso. Jewish Boy. 1892"
+        },
+        "date": "1892"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/361/w500h420/CRI_151361.jpg",
+          "alt": "Paul Gauguin. The Moon and the Earth. 1893"
+        },
+        "date": "1893"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/018/w500h420/CRI_151018.jpg",
+          "alt": "Edvard Munch. The Storm. 1893"
+        },
+        "date": "1893"
+      },
+      {
+        "pic": "",
+        "date": "Arles, early 1889"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/028/w500h420/CRI_151028.jpg",
+          "alt": "Édouard Vuillard. Interior, Mother and Sister of the Artist. 1893"
+        },
+        "date": "1893"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/155/w500h420/CRI_239155.jpg",
+          "alt": "Édouard Vuillard. The Green Lamp. 1893"
+        },
+        "date": "1893"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/342/w500h420/CRI_211342.jpg",
+          "alt": "Auguste Rodin. Bust. c. 1894 (cast 1971)"
+        },
+        "date": "c. 1894 (cast 1971)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/344/w500h420/CRI_211344.jpg",
+          "alt": "Auguste Rodin. Naked Figure Study for Balzac. c. 1894-95 (cast 1965)"
+        },
+        "date": "c. 1894-95 (cast 1965)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/161/w500h420/CRI_239161.jpg",
+          "alt": "Édouard Vuillard. Still Life with Top Hat. 1893"
+        },
+        "date": "1893"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/214/w500h420/CRI_222214.jpg",
+          "alt": "Édouard Vuillard. The Park. 1894 (reworked in 1908)"
+        },
+        "date": "1894 (reworked in 1908)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/156/w500h420/CRI_239156.jpg",
+          "alt": "Édouard Vuillard. The Window. 1894"
+        },
+        "date": "1894"
+      },
+      {
+        "pic": "",
+        "date": "1892 (cast 1966)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/602/w500h420/CRI_198602.jpg",
+          "alt": "Paul Cézanne. Still Life with Apples. 1895-98"
+        },
+        "date": "1895-98"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/137/w500h420/CRI_151137.jpg",
+          "alt": "Odilon Redon. Profile. c. 1895"
+        },
+        "date": "c. 1895"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/161/w500h420/CRI_162161.jpg",
+          "alt": "Édouard Vuillard. Embroidery. 1895-96"
+        },
+        "date": "1895-96"
+      },
+      {
+        "pic": "",
+        "date": "c. 1893 (cast 1971)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/347/w500h420/CRI_211347.jpg",
+          "alt": "Auguste Rodin. Headless Naked Figure Study for Balzac. 1896 (cast 1970)"
+        },
+        "date": "1896 (cast 1970)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/147/w500h420/CRI_239147.jpg",
+          "alt": "Pierre Bonnard. Reclining Nude. 1897"
+        },
+        "date": "1897"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/071/w500h420/CRI_151071.jpg",
+          "alt": "Paul Cézanne. Pines and Rocks (Fontainebleau?). c. 1897"
+        },
+        "date": "c. 1897"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/350/w500h420/CRI_211350.jpg",
+          "alt": "Auguste Rodin. Head. 1897"
+        },
+        "date": "1897"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/434/w500h420/CRI_151434.jpg",
+          "alt": "Henri Rousseau. The Sleeping Gypsy. 1897"
+        },
+        "date": "1897"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/393/w500h420/CRI_151393.jpg",
+          "alt": "Paul Cézanne. Turning Road at Montgeroult. 1898"
+        },
+        "date": "1898"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/554/w500h420/CRI_208554.jpg",
+          "alt": "George Minne. Kneeling Youth. 1898"
+        },
+        "date": "1898"
+      },
+      {
+        "pic": "",
+        "date": "1894"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/059/w500h420/CRI_210059.jpg",
+          "alt": "Auguste Rodin. Monument to Balzac. 1898 (cast 1954)"
+        },
+        "date": "1898 (cast 1954)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/309/w500h420/CRI_151309.jpg",
+          "alt": "Louis Michel Eilshemius. Afternoon Wind. 1899"
+        },
+        "date": "1899"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/271/w500h420/CRI_271.jpg",
+          "alt": "Henri Matisse. Still Life. Paris, early 1899"
+        },
+        "date": "Paris, early 1899"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/273/w500h420/CRI_208273.jpg",
+          "alt": "André Derain. Poplars. c. 1900"
+        },
+        "date": "c. 1900"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/165/w500h420/CRI_239165.jpg",
+          "alt": "Paul Gauguin. Tahitian Landscape. 1899"
+        },
+        "date": "1899"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/218/w500h420/CRI_208218.jpg",
+          "alt": "Raoul François Larche. Loïe Fuller, The Dancer. c. 1900"
+        },
+        "date": "c. 1900"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/295/w500h420/CRI_241295.jpg",
+          "alt": "Aristide Maillol. Two Women. 1900"
+        },
+        "date": "1900"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/642/w500h420/CRI_211642.jpg",
+          "alt": "Henri Matisse. The Serf. Paris, 1900-1904"
+        },
+        "date": "Paris, 1900-1904"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/264/w500h420/CRI_193264.jpg",
+          "alt": "Henri Matisse. Male Model. Paris, c. 1900"
+        },
+        "date": "Paris, c. 1900"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/114/w500h420/CRI_151114.jpg",
+          "alt": "Odilon Redon. Trees in Bièvres. after 1900"
+        },
+        "date": "after 1900"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/132/w500h420/CRI_151132.jpg",
+          "alt": "Odilon Redon. Landscape. after 1900"
+        },
+        "date": "after 1900"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/146/w500h420/CRI_151146.jpg",
+          "alt": "Odilon Redon. The Black Sun. c. 1900"
+        },
+        "date": "c. 1900"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/148/w500h420/CRI_151148.jpg",
+          "alt": "Odilon Redon. The Three Fates. 1900"
+        },
+        "date": "1900"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/666/w500h420/CRI_221666.jpg",
+          "alt": "Émile-Antoine Bourdelle. Beethoven, Tragic Mask. 1901"
+        },
+        "date": "1901"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/254/w500h420/CRI_241254.jpg",
+          "alt": "Émile-Antoine Bourdelle. Beethoven. 1901"
+        },
+        "date": "1901"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/153/w500h420/CRI_239153.jpg",
+          "alt": "Henri Rousseau. Flowers in a Vase. 1901-02"
+        },
+        "date": "1901-02"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/576/w500h420/CRI_198576.jpg",
+          "alt": "Paul Cézanne. Still Life with Ginger Jar, Sugar Bowl, and Oranges. 1902-06"
+        },
+        "date": "1902-06"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/560/w500h420/CRI_210560.jpg",
+          "alt": "Aristide Maillol. The Mediterranean. 1902-05 (cast c. 1951-53)"
+        },
+        "date": "1902-05 (cast c. 1951-53)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/546/w500h420/CRI_154546.jpg",
+          "alt": "Piet Mondrian. Truncated View of the Broekzijder Mill on the Gein, Wings Facing West. c. 1902-03 or earlier"
+        },
+        "date": "c. 1902-03 or earlier"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/555/w500h420/CRI_198555.jpg",
+          "alt": "Paul Cézanne. Château Noir. 1903-04"
+        },
+        "date": "1903-04"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/583/w500h420/CRI_209583.jpg",
+          "alt": "Aristide Maillol. Leda. 1902"
+        },
+        "date": "1902"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/390/w500h420/CRI_151390.jpg",
+          "alt": "Henri Matisse. Study for \"Luxe, calme et volupté\". 1904"
+        },
+        "date": "1904"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/264/w500h420/CRI_210264.jpg",
+          "alt": "André Derain. Fishing Boats, Collioure. 1905"
+        },
+        "date": "1905"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/918/w500h420/CRI_150918.jpg",
+          "alt": "Henri Matisse. La Japonaise: Woman beside the Water. Collioure, summer 1905"
+        },
+        "date": "Collioure, summer 1905"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/293/w500h420/CRI_151293.jpg",
+          "alt": "Henri Matisse. Landscape at Collioure. Collioure, summer 1905"
+        },
+        "date": "Collioure, summer 1905"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/492/w500h420/CRI_151492.jpg",
+          "alt": "Henri Matisse. Interior with a Young Girl (Girl Reading). Paris 1905-06"
+        },
+        "date": "Paris 1905-06"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/390/w500h420/CRI_246390.jpg",
+          "alt": "Pablo Picasso. Boy Leading a Horse. Paris, 1905-06"
+        },
+        "date": "Paris, 1905-06"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/294/w500h420/CRI_209294.jpg",
+          "alt": "Pablo Picasso. The Jester. 1905 (cast 1950s)"
+        },
+        "date": "1905 (cast 1950s)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/491/w500h420/CRI_151491.jpg",
+          "alt": "Odilon Redon. Green Death. c. 1905"
+        },
+        "date": "c. 1905"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/199/w500h420/CRI_159199.jpg",
+          "alt": "Odilon Redon. Apparition. c. 1905"
+        },
+        "date": "c. 1905"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/121/w500h420/CRI_151121.jpg",
+          "alt": "Odilon Redon. Composition: Flowers without a Vase. c. 1905"
+        },
+        "date": "c. 1905"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/363/w500h420/CRI_161363.jpg",
+          "alt": "Walter Richard Sickert. La Gaieté Montparnasse. c. 1905"
+        },
+        "date": "c. 1905"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/840/w500h420/CRI_149840.jpg",
+          "alt": "Maurice de Vlaminck. Autumn Landscape. c. 1905"
+        },
+        "date": "c. 1905"
+      },
+      {
+        "pic": "",
+        "date": "1903"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/093/w500h420/CRI_151093.jpg",
+          "alt": "André Derain. London Bridge. London, winter 1906"
+        },
+        "date": "London, winter 1906"
+      },
+      {
+        "pic": "",
+        "date": "London 1905-06"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/458/w500h420/CRI_151458.jpg",
+          "alt": "Georges Braque. The Large Trees. L'Estaque 1906-07"
+        },
+        "date": "L'Estaque 1906-07"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/464/w500h420/CRI_151464.jpg",
+          "alt": "André Derain. L'Estaque. 1906"
+        },
+        "date": "1906"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/149/w500h420/CRI_239149.jpg",
+          "alt": "André Derain. The Seine at Chatou. 1906"
+        },
+        "date": "1906"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/164/w500h420/CRI_239164.jpg",
+          "alt": "André Derain. Bridge over the Riou. 1906"
+        },
+        "date": "1906"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/966/w500h420/CRI_210966.jpg",
+          "alt": "Ernst Ludwig Kirchner. Girl on a Divan. 1906"
+        },
+        "date": "1906"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/367/w500h420/CRI_228367.jpg",
+          "alt": "Henri Matisse. Reclining Nude, I. Collioure, winter 1906-07"
+        },
+        "date": "Collioure, winter 1906-07"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/673/w500h420/CRI_220673.jpg",
+          "alt": "Henri Matisse. Standing Nude. Collioure 1906 (cast 1950)"
+        },
+        "date": "Collioure 1906 (cast 1950)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/418/w500h420/CRI_151418.jpg",
+          "alt": "Pablo Picasso. Two Nudes. Paris, late 1906"
+        },
+        "date": "Paris, late 1906"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/525/w500h420/CRI_179525.jpg",
+          "alt": "Pablo Picasso. Woman Plaiting Her Hair. Paris, late summer or fall 1906"
+        },
+        "date": "Paris, late summer or fall 1906"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/127/w500h420/CRI_212127.jpg",
+          "alt": "Pablo Picasso. Nude with Joined Hands. 1906"
+        },
+        "date": "1906"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/032/w500h420/CRI_151032.jpg",
+          "alt": "André Derain. Madame Derain in Green. 1907"
+        },
+        "date": "1907"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/299/w500h420/CRI_151299.jpg",
+          "alt": "Georges Braque. Landscape at La Ciotat. La Ciotat, summer 1907"
+        },
+        "date": "La Ciotat, summer 1907"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/190/w500h420/CRI_151190.jpg",
+          "alt": "André Derain. Landscape near Cassis. 1907"
+        },
+        "date": "1907"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/718/w500h420/CRI_223718.jpg",
+          "alt": "André Derain. Bathers. 1907"
+        },
+        "date": "1907"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/429/w500h420/CRI_166429.jpg",
+          "alt": "Marcel Duchamp. Man Seated by a Window. 1907"
+        },
+        "date": "1907"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/430/w500h420/CRI_166430.jpg",
+          "alt": "Marcel Duchamp. Portrait of Yvonne Duchamp. 1907 or 1909"
+        },
+        "date": "1907 or 1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/613/w500h420/CRI_241613.jpg",
+          "alt": "Gustav Klimt. Hope, II. 1907-08"
+        },
+        "date": "1907-08"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/490/w500h420/CRI_151490.jpg",
+          "alt": "Henri Matisse. Music (Sketch). Collioure, spring-summer 1907"
+        },
+        "date": "Collioure, spring-summer 1907"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/702/w500h420/CRI_209702.jpg",
+          "alt": "Henri Matisse. Female Nude. 1907"
+        },
+        "date": "1907"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/191/w500h420/CRI_151191.jpg",
+          "alt": "Pablo Picasso. Head of a Sleeping Woman (Study for Nude with Drapery). Paris, summer 1907"
+        },
+        "date": "Paris, summer 1907"
+      },
+      {
+        "pic": "",
+        "date": "1906-08"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/271/w500h420/CRI_151271.jpg",
+          "alt": "Pablo Picasso. Les Demoiselles d'Avignon. Paris, June-July 1907"
+        },
+        "date": "Paris, June-July 1907"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/297/w500h420/CRI_151297.jpg",
+          "alt": "Pablo Picasso. Study for Les Demoiselles D'Avignon. Paris, early 1907"
+        },
+        "date": "Paris, early 1907"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/505/w500h420/CRI_151505.jpg",
+          "alt": "Pablo Picasso. Woman's Head. early 1908"
+        },
+        "date": "early 1908"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/201/w500h420/CRI_159201.jpg",
+          "alt": "Odilon Redon. The Window. c. 1907"
+        },
+        "date": "c. 1907"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/945/w500h420/CRI_150945.jpg",
+          "alt": "Georges Braque. Road near L'Estaque. L'Estaque, late summer 1908"
+        },
+        "date": "L'Estaque, late summer 1908"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/120/w500h420/CRI_151120.jpg",
+          "alt": "Odilon Redon. Jacob and the Angel. c. 1907"
+        },
+        "date": "c. 1907"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/320/w500h420/CRI_246320.jpg",
+          "alt": "Kees van Dongen. Modjesko, Soprano Singer. 1908"
+        },
+        "date": "1908"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/773/w500h420/CRI_8773.jpg",
+          "alt": "Fernand Léger. Bridge. 1908?"
+        },
+        "date": "1908?"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/660/w500h420/CRI_210660.jpg",
+          "alt": "Henri Matisse. Seated Figure, Right Hand on Ground. Paris, fall 1908"
+        },
+        "date": "Paris, fall 1908"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/298/w500h420/CRI_184298.jpg",
+          "alt": "Henri Matisse. The Back (I). Paris, Couvent du Sacré Coeur, and Issy-les-Moulineaux, spring 1908-late 1909"
+        },
+        "date": "Paris, Couvent du Sacré Coeur, and Issy-les-Moulineaux, spring 1908-late 1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/175/w500h420/CRI_151175.jpg",
+          "alt": "Pablo Picasso. Fruit Dish. Paris, winter 1908-09"
+        },
+        "date": "Paris, winter 1908-09"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/047/w500h420/CRI_162047.jpg",
+          "alt": "Pablo Picasso. Vase of Flowers. Paris, spring 1908"
+        },
+        "date": "Paris, spring 1908"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/481/w500h420/CRI_276481.jpg",
+          "alt": "Pablo Picasso. Repose. Paris, spring 1908"
+        },
+        "date": "Paris, spring 1908"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/027/w500h420/CRI_151027.jpg",
+          "alt": "Pablo Picasso. Landscape. La Rue des Bois or Paris, August or September 1908"
+        },
+        "date": "La Rue des Bois or Paris, August or September 1908"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/668/w500h420/CRI_208668.jpg",
+          "alt": "Pablo Picasso. Still Life with Fruit and Glass. Paris, fall 1908"
+        },
+        "date": "Paris, fall 1908"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/487/w500h420/CRI_151487.jpg",
+          "alt": "Pablo Picasso. Bather. winter 1908-09"
+        },
+        "date": "winter 1908-09"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/161/w500h420/CRI_209161.jpg",
+          "alt": "Charles Despiau. Young Peasant Girl. 1909 (cast 1929)"
+        },
+        "date": "1909 (cast 1929)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/814/w500h420/CRI_166814.jpg",
+          "alt": "Gwen John. Girl with Bare Shoulders. 1909-10?"
+        },
+        "date": "1909-10?"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/327/w500h420/CRI_204327.jpg",
+          "alt": "Vasily Kandinsky. Picture with an Archer. 1909"
+        },
+        "date": "1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/153/w500h420/CRI_151153.jpg",
+          "alt": "Oskar Kokoschka. Doctor Emma Veronika Sanders. 1909"
+        },
+        "date": "1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/008/w500h420/CRI_169008.jpg",
+          "alt": "Henri Matisse. Bather. Cavalière, summer 1909"
+        },
+        "date": "Cavalière, summer 1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/112/w500h420/CRI_147112.jpg",
+          "alt": "Henri Matisse. Dance (I). Paris, Boulevard des Invalides, early 1909"
+        },
+        "date": "Paris, Boulevard des Invalides, early 1909"
+      },
+      {
+        "pic": "",
+        "date": "1908 (reworked 1919; dated on painting 1907)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/292/w500h420/CRI_193292.jpg",
+          "alt": "Piet Mondrian. View from the Dunes with Beach and Piers, Domburg. 1909"
+        },
+        "date": "1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/046/w500h420/CRI_212046.jpg",
+          "alt": "Pablo Picasso. Woman's Head (Fernande). Paris, fall 1909"
+        },
+        "date": "Paris, fall 1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/037/w500h420/CRI_151037.jpg",
+          "alt": "Pablo Picasso. Still Life with Liqueur Bottle. Horta de San Joan, August 1909"
+        },
+        "date": "Horta de San Joan, August 1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/502/w500h420/CRI_151502.jpg",
+          "alt": "Pablo Picasso. The Reservoir, Horta de Ebro. Horta de San Joan, summer 1909"
+        },
+        "date": "Horta de San Joan, summer 1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/507/w500h420/CRI_151507.jpg",
+          "alt": "Pablo Picasso. Woman with Pears. Horta de San Joan, summer 1909"
+        },
+        "date": "Horta de San Joan, summer 1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/336/w500h420/CRI_151336.jpg",
+          "alt": "Egon Schiele. Portrait of Gerti Schiele. 1909"
+        },
+        "date": "1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/547/w500h420/CRI_160547.jpg",
+          "alt": "Jacques Villon. Portrait of the Artist. 1909"
+        },
+        "date": "1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/355/w500h420/CRI_151355.jpg",
+          "alt": "Umberto Boccioni. The City Rises. 1910"
+        },
+        "date": "1910"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/632/w500h420/CRI_221632.jpg",
+          "alt": "Constantin Brancusi. Maiastra. 1910-12"
+        },
+        "date": "1910-12"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/213/w500h420/CRI_106213.jpg",
+          "alt": "Georges Braque. The Table (Still Life with Fan). L'Estaque or Paris, fall 1910"
+        },
+        "date": "L'Estaque or Paris, fall 1910"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/493/w500h420/CRI_151493.jpg",
+          "alt": "Giacomo Balla. Street Light. c. 1910-11 (dated on painting 1909)"
+        },
+        "date": "c. 1910-11 (dated on painting 1909)"
+      },
+      {
+        "pic": "",
+        "date": "1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/426/w500h420/CRI_166426.jpg",
+          "alt": "Marcel Duchamp. Laundry Barge. 1910"
+        },
+        "date": "1910"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/141/w500h420/CRI_151141.jpg",
+          "alt": "Carlo Carrà. Funeral of the Anarchist Galli. 1910-11"
+        },
+        "date": "1910-11"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/543/w500h420/CRI_160543.jpg",
+          "alt": "Marcel Duchamp. Two Nudes. 1910"
+        },
+        "date": "1910"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/800/w500h420/CRI_183800.jpg",
+          "alt": "Gustav Klimt. The Park. 1910 or earlier"
+        },
+        "date": "1910 or earlier"
+      },
+      {
+        "pic": "",
+        "date": "Issy-les-Moulineaux, fall 1909"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/379/w500h420/CRI_151379.jpg",
+          "alt": "František Kupka. The First Step. 1910-13? (dated on painting 1909)"
+        },
+        "date": "1910-13? (dated on painting 1909)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/036/w500h420/CRI_244036.jpg",
+          "alt": "František Kupka. Mme Kupka among Verticals. 1910-11"
+        },
+        "date": "1910-11"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/164/w500h420/CRI_58164.jpg",
+          "alt": "Aristide Maillol. Head of Flora. 1910-11"
+        },
+        "date": "1910-11"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/861/w500h420/CRI_169861.jpg",
+          "alt": "Aristide Maillol. Spring. 1910-11"
+        },
+        "date": "1910-11"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/295/w500h420/CRI_61295.jpg",
+          "alt": "Gaston Lachaise. Woman Arranging Her Hair. 1910-12 (cast 1963)"
+        },
+        "date": "1910-12 (cast 1963)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/899/w500h420/CRI_169899.jpg",
+          "alt": "Henri Matisse. Jeannette (I). Issy-les-Moulineaux, January - March (?) 1910"
+        },
+        "date": "Issy-les-Moulineaux, January - March (?) 1910"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/915/w500h420/CRI_169915.jpg",
+          "alt": "Henri Matisse. Jeannette (IV). Issy-les-Moulineaux, April - September 1910 or February - mid-July 1911"
+        },
+        "date": "Issy-les-Moulineaux, April - September 1910 or February - mid-July 1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/873/w500h420/CRI_169873.jpg",
+          "alt": "Henri Matisse. Jeannette (II). Issy-les-Moulineaux, January - March (?) 1910"
+        },
+        "date": "Issy-les-Moulineaux, January - March (?) 1910"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/533/w500h420/CRI_151533.jpg",
+          "alt": "Pablo Picasso. Girl with a Mandolin (Fanny Tellier). Paris, late spring 1910"
+        },
+        "date": "Paris, late spring 1910"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/124/w500h420/CRI_151124.jpg",
+          "alt": "Odilon Redon. Seated Man. c. 1910"
+        },
+        "date": "c. 1910"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/449/w500h420/CRI_276449.jpg",
+          "alt": "Odilon Redon. Butterflies. c. 1910"
+        },
+        "date": "c. 1910"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/149/w500h420/CRI_151149.jpg",
+          "alt": "Odilon Redon. Underwater Vision. c. 1910"
+        },
+        "date": "c. 1910"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/166/w500h420/CRI_151166.jpg",
+          "alt": "Henri Rousseau. The Dream. 1910"
+        },
+        "date": "1910"
+      },
+      {
+        "pic": "",
+        "date": "1910"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/031/w500h420/CRI_151031.jpg",
+          "alt": "Edward Steichen. In Exaltation of Flowers: Petunia, Caladium, Budleya. c. 1910-13"
+        },
+        "date": "c. 1910-13"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/206/w500h420/CRI_207206.jpg",
+          "alt": "Maurice Utrillo. La Rue des Abbesses. 1910"
+        },
+        "date": "1910"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/188/w500h420/CRI_237188.jpg",
+          "alt": "Albert Bloch. Harlequinade. 1911"
+        },
+        "date": "1911"
+      },
+      {
+        "pic": "",
+        "date": "c. 1910?"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/441/w500h420/CRI_151441.jpg",
+          "alt": "Umberto Boccioni. The Laugh. 1911"
+        },
+        "date": "1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/163/w500h420/CRI_210163.jpg",
+          "alt": "Umberto Boccioni. States of Mind II: Those Who Go. 1911"
+        },
+        "date": "1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/134/w500h420/CRI_162134.jpg",
+          "alt": "Umberto Boccioni. States of Mind III: Those Who Stay. 1911"
+        },
+        "date": "1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/077/w500h420/CRI_151077.jpg",
+          "alt": "Georges Braque. Man with a Guitar. Céret, summer 1911-early 1912"
+        },
+        "date": "Céret, summer 1911-early 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/326/w500h420/CRI_162326.jpg",
+          "alt": "Georges Braque. Homage to J. S. Bach. winter 1911-12"
+        },
+        "date": "winter 1911-12"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/501/w500h420/CRI_150501.jpg",
+          "alt": "Carlo Carrà. Jolts of a Cab. 1911"
+        },
+        "date": "1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/515/w500h420/CRI_118515.jpg",
+          "alt": "Marc Chagall. I and the Village. 1911"
+        },
+        "date": "1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/461/w500h420/CRI_210461.jpg",
+          "alt": "Marcel Duchamp. Landscape. Neuilly, January-February 1911"
+        },
+        "date": "Neuilly, January-February 1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/542/w500h420/CRI_74542.jpg",
+          "alt": "Raymond Duchamp-Villon. Baudelaire. 1911"
+        },
+        "date": "1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/561/w500h420/CRI_211561.jpg",
+          "alt": "Juan Gris. Jar, Bottle and Glass. 1911"
+        },
+        "date": "1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/447/w500h420/CRI_184447.jpg",
+          "alt": "Gwen John. Girl Reading at a Window. 1911"
+        },
+        "date": "1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/888/w500h420/CRI_150888.jpg",
+          "alt": "František Kupka. Red and Blue Disks. 1911? (dated on painting 1911-12)"
+        },
+        "date": "1911? (dated on painting 1911-12)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/710/w500h420/CRI_182710.jpg",
+          "alt": "František Kupka. The Musician Follot. 1911? (dated on painting 1910)"
+        },
+        "date": "1911? (dated on painting 1910)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/685/w500h420/CRI_168685.jpg",
+          "alt": "František Kupka. Oval Mirror. 1911? (dated on painting 1910)"
+        },
+        "date": "1911? (dated on painting 1910)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/089/w500h420/CRI_209089.jpg",
+          "alt": "František Kupka. Vertical Planes (study). 1912-13? (dated on painting 1911)"
+        },
+        "date": "1912-13? (dated on painting 1911)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/114/w500h420/CRI_229114.jpg",
+          "alt": "Wilhelm Lehmbruck. Kneeling Woman. 1911"
+        },
+        "date": "1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/523/w500h420/CRI_151523.jpg",
+          "alt": "Henri Matisse. The Red Studio. Issy-les-Moulineaux, fall 1911"
+        },
+        "date": "Issy-les-Moulineaux, fall 1911"
+      },
+      {
+        "pic": "",
+        "date": "1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/909/w500h420/CRI_169909.jpg",
+          "alt": "Henri Matisse. Jeannette (III). Issy-les-Moulineaux, April - September 1910 or February - mid-July 1911"
+        },
+        "date": "Issy-les-Moulineaux, April - September 1910 or February - mid-July 1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/188/w500h420/CRI_184188.jpg",
+          "alt": "Henri Matisse. The Back (II). Issy-les-Moulineaux, 1911 (?) - early March or April 1913"
+        },
+        "date": "Issy-les-Moulineaux, 1911 (?) - early March or April 1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/724/w500h420/CRI_9724.jpg",
+          "alt": "Henri Matisse. Still Life with Aubergines. Collioure, summer 1911"
+        },
+        "date": "Collioure, summer 1911"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/973/w500h420/CRI_211973.jpg",
+          "alt": "Aleksandr Archipenko. Madonna of the Rocks. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/078/w500h420/CRI_151078.jpg",
+          "alt": "Pablo Picasso. \"Ma Jolie\". Paris, winter 1911-12"
+        },
+        "date": "Paris, winter 1911-12"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/182/w500h420/CRI_151182.jpg",
+          "alt": "Giacomo Balla. Speeding Automobile. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/788/w500h420/CRI_210788.jpg",
+          "alt": "Umberto Boccioni. Development of a Bottle in Space. 1912 (cast 1931)"
+        },
+        "date": "1912 (cast 1931)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/522/w500h420/CRI_151522.jpg",
+          "alt": "Georges Braque. Soda. Paris, spring 1912"
+        },
+        "date": "Paris, spring 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/187/w500h420/CRI_151187.jpg",
+          "alt": "Marc Chagall. Calvary. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/194/w500h420/CRI_150194.jpg",
+          "alt": "Robert Delaunay. Windows. Paris 1912"
+        },
+        "date": "Paris 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/492/w500h420/CRI_121492.jpg",
+          "alt": "Giorgio de Chirico. The Nostalgia of the Infinite. Paris 1912-13? (dated on painting 1911)"
+        },
+        "date": "Paris 1912-13? (dated on painting 1911)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/193/w500h420/CRI_150193.jpg",
+          "alt": "Robert Delaunay. The Three Windows, the Tower and the Wheel. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/923/w500h420/CRI_210923.jpg",
+          "alt": "André Derain. Valley of the Lot at Vers. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/186/w500h420/CRI_209186.jpg",
+          "alt": "André Derain. Window at Vers. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/076/w500h420/CRI_151076.jpg",
+          "alt": "Marcel Duchamp. The Passage from Virgin to Bride. Munich, July-August 1912"
+        },
+        "date": "Munich, July-August 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/738/w500h420/CRI_182738.jpg",
+          "alt": "Alexandra Exter. Cubist Nude. c. 1912"
+        },
+        "date": "c. 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/569/w500h420/CRI_1569.jpg",
+          "alt": "Natalia Goncharova. Landscape, 47. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/527/w500h420/CRI_160527.jpg",
+          "alt": "Juan Gris. Still Life with Flowers. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/243/w500h420/CRI_243243.jpg",
+          "alt": "Mikhail Larionov. Rayonist Composition: Domination of Red. 1912-13 (dated on painting 1911)"
+        },
+        "date": "1912-13 (dated on painting 1911)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/718/w500h420/CRI_232718.jpg",
+          "alt": "Mikhail Larionov. Rayonist Composition. c. 1912-13"
+        },
+        "date": "c. 1912-13"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/497/w500h420/CRI_151497.jpg",
+          "alt": "Kazimir Malevich. Woman with Pails: Dynamic Arrangement. 1912-13 (dated on reverse 1912)"
+        },
+        "date": "1912-13 (dated on reverse 1912)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/382/w500h420/CRI_69382.jpg",
+          "alt": "Manolo (Manuel Martínez Hugué). Standing Nude. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/279/w500h420/CRI_151279.jpg",
+          "alt": "Henri Matisse. Periwinkles / Moroccan Garden. Tangier, winter-spring 1912"
+        },
+        "date": "Tangier, winter-spring 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/232/w500h420/CRI_173232.jpg",
+          "alt": "Henri Matisse. Goldfish and Sculpture. Issy-les-Moulineaux, spring-summer 1912"
+        },
+        "date": "Issy-les-Moulineaux, spring-summer 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/705/w500h420/CRI_243705.jpg",
+          "alt": "Francis Picabia. The Spring. June-September 1912"
+        },
+        "date": "June-September 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/706/w500h420/CRI_243706.jpg",
+          "alt": "Francis Picabia. Dances at the Spring. c. June-September 1912"
+        },
+        "date": "c. June-September 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/544/w500h420/CRI_160544.jpg",
+          "alt": "Francis Picabia. Tarentelle. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/268/w500h420/CRI_151268.jpg",
+          "alt": "Pablo Picasso. Violin and Grapes. Céret and Sorgues, spring-summer 1912"
+        },
+        "date": "Céret and Sorgues, spring-summer 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/952/w500h420/CRI_143952.jpg",
+          "alt": "Pablo Picasso. The Architect's Table. Paris, early 1912"
+        },
+        "date": "Paris, early 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/915/w500h420/CRI_194915.jpg",
+          "alt": "Pablo Picasso. Maquette for Guitar. Paris, October 1912"
+        },
+        "date": "Paris, October 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/119/w500h420/CRI_151119.jpg",
+          "alt": "Odilon Redon. The Chariot of Apollo. c. 1912"
+        },
+        "date": "c. 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/123/w500h420/CRI_151123.jpg",
+          "alt": "Odilon Redon. Wildflowers in a Long Neck Vase. c. 1912"
+        },
+        "date": "c. 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/126/w500h420/CRI_151126.jpg",
+          "alt": "Odilon Redon. The Birth of Venus. c. 1912"
+        },
+        "date": "c. 1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/005/w500h420/CRI_157005.jpg",
+          "alt": "Diego Rivera. Cubist Landscape. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/195/w500h420/CRI_210195.jpg",
+          "alt": "Georges Rouault. Clown. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/202/w500h420/CRI_184202.jpg",
+          "alt": "Gino Severini. Dynamic Hieroglyphic of the Bal Tabarin. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/810/w500h420/CRI_165810.jpg",
+          "alt": "Maurice Sterne. Resting at the Bazaar. 1912"
+        },
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/345/w500h420/CRI_209345.jpg",
+          "alt": "Jacques Villon. Girl at the Piano. c. 1912-14"
+        },
+        "date": "c. 1912-14"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/082/w500h420/CRI_210082.jpg",
+          "alt": "Vladimir Baranoff-Rossiné. Symphony Number 1. 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/183/w500h420/CRI_151183.jpg",
+          "alt": "Giacomo Balla. Swifts: Paths of Movement + Dynamic Sequences. 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/797/w500h420/CRI_210797.jpg",
+          "alt": "Umberto Boccioni. Unique Forms of Continuity in Space. 1913 (cast 1931)"
+        },
+        "date": "1913 (cast 1931)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/786/w500h420/CRI_246786.jpg",
+          "alt": "Umberto Boccioni. Dynamism of a Soccer Player Dinamismo di un foot-baller (Dynamism of a soccer player). 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/670/w500h420/CRI_221670.jpg",
+          "alt": "Constantin Brancusi. Mlle Pogany. version I, 1913 (after a marble of 1912)"
+        },
+        "date": "version I, 1913 (after a marble of 1912)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/517/w500h420/CRI_151517.jpg",
+          "alt": "Giorgio de Chirico. The Anxious Journey. Paris, spring-summer 1913"
+        },
+        "date": "Paris, spring-summer 1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/645/w500h420/CRI_138645.jpg",
+          "alt": "Marcel Duchamp. 3 Standard Stoppages. Paris 1913-14"
+        },
+        "date": "Paris 1913-14"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/632/w500h420/CRI_208632.jpg",
+          "alt": "Raymond Duchamp-Villon. The Lovers. 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/696/w500h420/CRI_221696.jpg",
+          "alt": "Jacob Epstein. Mother and Child. 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/430/w500h420/CRI_228430.jpg",
+          "alt": "Jacob Epstein. The Rock Drill. 1913-14 (cast 1962)"
+        },
+        "date": "1913-14 (cast 1962)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/228/w500h420/CRI_261228.jpg",
+          "alt": "Natalia Goncharova. Rayonism, Blue-Green Forest. 1913 (dated on reverse 1911)"
+        },
+        "date": "1913 (dated on reverse 1911)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/372/w500h420/CRI_210372.jpg",
+          "alt": "Juan Gris. Grapes. October 1913"
+        },
+        "date": "October 1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/719/w500h420/CRI_232719.jpg",
+          "alt": "Oskar Kokoschka. Self-Portrait. 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/859/w500h420/CRI_255859.jpg",
+          "alt": "František Kupka. Vertical and Diagonal Planes. 1913-14"
+        },
+        "date": "1913-14"
+      },
+      {
+        "pic": "",
+        "date": "1912"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/116/w500h420/CRI_151116.jpg",
+          "alt": "Roger de La Fresnaye. The Conquest of the Air. 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/267/w500h420/CRI_243267.jpg",
+          "alt": "Fernand Léger. Contrast of Forms. 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/721/w500h420/CRI_232721.jpg",
+          "alt": "Stanton Macdonald-Wright. Still Life Synchromy. 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/712/w500h420/CRI_232712.jpg",
+          "alt": "Kazimir Malevich. Samovar. 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/660/w500h420/CRI_221660.jpg",
+          "alt": "Manolo (Manuel Martínez Hugué). Grape Harvester. 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/713/w500h420/CRI_232713.jpg",
+          "alt": "Franz Marc. The World Cow. 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": "",
+        "date": "Paris 1913 (dated on painting 1912)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/184/w500h420/CRI_151184.jpg",
+          "alt": "Henri Matisse. The Blue Window. Issy-les-Moulineaux, summer 1913"
+        },
+        "date": "Issy-les-Moulineaux, summer 1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/242/w500h420/CRI_243242.jpg",
+          "alt": "Francis Picabia. I See Again in Memory My Dear Udnie. 1914, possibly begun 1913"
+        },
+        "date": "1914, possibly begun 1913"
+      },
+      {
+        "pic": "",
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/155/w500h420/CRI_151155.jpg",
+          "alt": "Piet Mondrian. Composition in Brown and Gray. 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/355/w500h420/CRI_236355.jpg",
+          "alt": "Pablo Picasso. Card Player. Paris, winter 1913-14"
+        },
+        "date": "Paris, winter 1913-14"
+      },
+      {
+        "pic": "",
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/538/w500h420/CRI_200538.jpg",
+          "alt": "Pablo Picasso. Glass, Guitar, and Bottle. Paris, early 1913"
+        },
+        "date": "Paris, early 1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/665/w500h420/CRI_237665.jpg",
+          "alt": "Morgan Russell. Creavit Deus Hominem (Synchromy Number 3: Color Counterpoint). 1913"
+        },
+        "date": "1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/612/w500h420/CRI_168612.jpg",
+          "alt": "Joseph Stella. Battle of Lights. 1913-14? (dated on painting 1914 and 1915)"
+        },
+        "date": "1913-14? (dated on painting 1914 and 1915)"
+      },
+      {
+        "pic": "",
+        "date": "1913-14"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/976/w500h420/CRI_150976.jpg",
+          "alt": "Giorgio de Chirico. The Evil Genius of a King. Paris 1914-15"
+        },
+        "date": "Paris 1914-15"
+      },
+      {
+        "pic": "",
+        "date": "Paris 1913"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/994/w500h420/CRI_229994.jpg",
+          "alt": "Aleksandr Archipenko. Statue on a Triangular Base. 1914 (cast 1969)"
+        },
+        "date": "1914 (cast 1969)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/961/w500h420/CRI_150961.jpg",
+          "alt": "Giorgio de Chirico. Gare Montparnasse (The Melancholy of Departure). Paris, early 1914"
+        },
+        "date": "Paris, early 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/993/w500h420/CRI_150993.jpg",
+          "alt": "Giorgio de Chirico. The Enigma of a Day. Paris, early 1914"
+        },
+        "date": "Paris, early 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/994/w500h420/CRI_150994.jpg",
+          "alt": "Giorgio de Chirico. The Duo. Paris, winter 1914-15"
+        },
+        "date": "Paris, winter 1914-15"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/916/w500h420/CRI_150916.jpg",
+          "alt": "Giorgio de Chirico. The Song of Love. Paris, June-July 1914"
+        },
+        "date": "Paris, June-July 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/995/w500h420/CRI_150995.jpg",
+          "alt": "Giorgio de Chirico. The Seer. Paris, winter 1914-15"
+        },
+        "date": "Paris, winter 1914-15"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/045/w500h420/CRI_151045.jpg",
+          "alt": "Giorgio de Chirico. The Serenity of the Scholar. Paris, April-May 1914"
+        },
+        "date": "Paris, April-May 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/295/w500h420/CRI_243295.jpg",
+          "alt": "Marcel Duchamp. Network of Stoppages. Paris, 1914"
+        },
+        "date": "Paris, 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/714/w500h420/CRI_229714.jpg",
+          "alt": "Raymond Duchamp-Villon. The Horse. 1914 (cast c. 1930-31)"
+        },
+        "date": "1914 (cast c. 1930-31)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/226/w500h420/CRI_173226.jpg",
+          "alt": "Albert Gleizes. Portrait of Igor Stravinsky. 1914"
+        },
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/529/w500h420/CRI_151529.jpg",
+          "alt": "Juan Gris. Guitar and Glasses. 1914"
+        },
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/410/w500h420/CRI_241410.jpg",
+          "alt": "Vasily Kandinsky. Panel for Edwin R. Campbell No. 3. 1914"
+        },
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/414/w500h420/CRI_241414.jpg",
+          "alt": "Vasily Kandinsky. Panel for Edwin R. Campbell No. 1. 1914"
+        },
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/611/w500h420/CRI_241611.jpg",
+          "alt": "Vasily Kandinsky. Panel for Edwin R. Campbell No. 2. 1914"
+        },
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/443/w500h420/CRI_241443.jpg",
+          "alt": "Vasily Kandinsky. Panel for Edwin R. Campbell No. 4. 1914"
+        },
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/839/w500h420/CRI_149839.jpg",
+          "alt": "Fernand Léger. Exit the Ballets Russes. 1914"
+        },
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/064/w500h420/CRI_171064.jpg",
+          "alt": "Henri Matisse. Woman on a High Stool (Germaine Raynal). Paris, quai Saint-Michel, early 1914"
+        },
+        "date": "Paris, quai Saint-Michel, early 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/573/w500h420/CRI_185573.jpg",
+          "alt": "Kazimir Malevich. Reservist of the First Division. fall-winter 1914"
+        },
+        "date": "fall-winter 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/356/w500h420/CRI_170356.jpg",
+          "alt": "Henri Matisse. Goldfish and Palette. Paris, quai Saint-Michel, fall 1914"
+        },
+        "date": "Paris, quai Saint-Michel, fall 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/812/w500h420/CRI_166812.jpg",
+          "alt": "Henri Matisse. View of Notre Dame. Paris, quai Saint-Michel, spring 1914"
+        },
+        "date": "Paris, quai Saint-Michel, spring 1914"
+      },
+      {
+        "pic": "",
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/038/w500h420/CRI_151038.jpg",
+          "alt": "Piet Mondrian. Composition in Oval with Color Planes 1. 1914"
+        },
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/159/w500h420/CRI_225159.jpg",
+          "alt": "Piet Mondrian. Tableau no. 2 / Composition no. V. 1914"
+        },
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/703/w500h420/CRI_243703.jpg",
+          "alt": "Francis Picabia. Comic Wedlock. c. June-July 1914"
+        },
+        "date": "c. June-July 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/704/w500h420/CRI_243704.jpg",
+          "alt": "Francis Picabia. This Has to Do with Me. c. June-July 1914"
+        },
+        "date": "c. June-July 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/524/w500h420/CRI_151524.jpg",
+          "alt": "Pablo Picasso. Green Still Life. Avignon, summer 1914"
+        },
+        "date": "Avignon, summer 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/999/w500h420/CRI_210999.jpg",
+          "alt": "Pablo Picasso. Glass of Absinthe. Paris, spring 1914"
+        },
+        "date": "Paris, spring 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/917/w500h420/CRI_194917.jpg",
+          "alt": "Pablo Picasso. Guitar. Paris, after March 1914"
+        },
+        "date": "Paris, after March 1914"
+      },
+      {
+        "pic": "",
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/321/w500h420/CRI_151321.jpg",
+          "alt": "Pablo Picasso. Woman with a Guitar. Paris, March 1914"
+        },
+        "date": "Paris, March 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/861/w500h420/CRI_194861.jpg",
+          "alt": "Pablo Picasso. Student with a Pipe. Paris, March 1914"
+        },
+        "date": "Paris, March 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/954/w500h420/CRI_150954.jpg",
+          "alt": "Lyubov Popova. Subject from a Dyer's Shop. 1914"
+        },
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/318/w500h420/CRI_151318.jpg",
+          "alt": "Diego Rivera. Young Man in a Gray Sweater (Jacques Lipchitz). Paris 1914"
+        },
+        "date": "Paris 1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/165/w500h420/CRI_151165.jpg",
+          "alt": "Gino Severini. Visual Synthesis of the Idea: \"War\". 1914"
+        },
+        "date": "1914"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/677/w500h420/CRI_211677.jpg",
+          "alt": "Aleksandr Archipenko. Woman Combing Her Hair. 1915"
+        },
+        "date": "1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/186/w500h420/CRI_151186.jpg",
+          "alt": "Marc Chagall. Birthday. 1915"
+        },
+        "date": "1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/021/w500h420/CRI_151021.jpg",
+          "alt": "Giorgio de Chirico. The Double Dream of Spring. Paris, January-May 1915"
+        },
+        "date": "Paris, January-May 1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/448/w500h420/CRI_211448.jpg",
+          "alt": "Giorgio de Chirico. Playthings of the Prince. fall 1915"
+        },
+        "date": "fall 1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/996/w500h420/CRI_150996.jpg",
+          "alt": "Giorgio de Chirico. The Amusements of a Young Girl. late 1915"
+        },
+        "date": "late 1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/120/w500h420/CRI_159120.jpg",
+          "alt": "Sonia Delaunay-Terk. Portuguese Market. 1915"
+        },
+        "date": "1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/927/w500h420/CRI_210927.jpg",
+          "alt": "Henri Laurens. Head of a Woman. 1915"
+        },
+        "date": "1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/163/w500h420/CRI_151163.jpg",
+          "alt": "Kazimir Malevich. Suprematist Composition: Airplane Flying. 1915 (dated on reverse 1914)"
+        },
+        "date": "1915 (dated on reverse 1914)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/496/w500h420/CRI_242496.jpg",
+          "alt": "Kazimir Malevich. Painterly Realism of a Boy with a Knapsack - Color Masses in the Fourth Dimension. 1915"
+        },
+        "date": "1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/234/w500h420/CRI_170234.jpg",
+          "alt": "Henri Matisse. Gourds. Issy-les-Moulineaux, 1915-16 (dated on painting 1916)"
+        },
+        "date": "Issy-les-Moulineaux, 1915-16 (dated on painting 1916)"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/549/w500h420/CRI_167549.jpg",
+          "alt": "Henri Matisse. The Moroccans. Issy-les-Moulineaux, late 1915 and fall 1916"
+        },
+        "date": "Issy-les-Moulineaux, late 1915 and fall 1916"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/392/w500h420/CRI_164392.jpg",
+          "alt": "Henri Matisse. Still Life after Jan Davidsz. de Heem's \"La Desserte\". Issy-les-Moulineaux, summer-fall 1915"
+        },
+        "date": "Issy-les-Moulineaux, summer-fall 1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/107/w500h420/CRI_175107.jpg",
+          "alt": "Henri Matisse. Composition. Issy-les-Moulineaux, 1915"
+        },
+        "date": "Issy-les-Moulineaux, 1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/691/w500h420/CRI_211691.jpg",
+          "alt": "Amedeo Modigliani. Head. 1915?"
+        },
+        "date": "1915?"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/912/w500h420/CRI_210912.jpg",
+          "alt": "Elie Nadelman. Man in the Open Air. c. 1915"
+        },
+        "date": "c. 1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/485/w500h420/CRI_151485.jpg",
+          "alt": "Pablo Picasso. Harlequin. Paris, late 1915"
+        },
+        "date": "Paris, late 1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/086/w500h420/CRI_151086.jpg",
+          "alt": "Georges Ribemont-Dessaignes. Silence. c. 1915"
+        },
+        "date": "c. 1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/328/w500h420/CRI_179328.jpg",
+          "alt": "Morgan Russell. Archaic Composition Number 2. 1915"
+        },
+        "date": "1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/195/w500h420/CRI_151195.jpg",
+          "alt": "Gino Severini. Armored Train in Action. 1915"
+        },
+        "date": "1915"
+      },
+      {
+        "pic": "",
+        "date": "1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/214/w500h420/CRI_209214.jpg",
+          "alt": "Max Weber. Air-Light-Shadow. 1915"
+        },
+        "date": "1915"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/997/w500h420/CRI_150997.jpg",
+          "alt": "Giorgio de Chirico. The Faithful Servitor. 1916 or 1917"
+        },
+        "date": "1916 or 1917"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/696/w500h420/CRI_248696.jpg",
+          "alt": "Paul Klee. Introducing the Miracle. 1916"
+        },
+        "date": "1916"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/186/w500h420/CRI_159186.jpg",
+          "alt": "Ivan Kliun. Suprematism. 1916"
+        },
+        "date": "1916"
+      },
+      {
+        "pic": {
+          "src": "http://www.moma.org/collection_images/resized/501/w500h420/CRI_151501.jpg",
+          "alt": "Kazimir Malevich. Suprematist Painting. 1916-17"
+        },
+        "date": "1916-17"
+      }
+    ]
+
+            // var year = dataset.date;
+            // var re = /{x}d\{4}/;
+            // alert(re.test(year));
+
+            // var a = Math.round(dataset.date);
+            // console.log(a)
+
+
+                d3.select("body").selectAll("p")
+                .data(dataset)
+                .enter()
+                .append("p")
+                // .text("hi")
+
+            d3.selectAll("p")
+            .text(function(d,i) {return d.date});
+
+
+
+                       // var dataset = [34,68, 70, 100, 120, 200];
+
+            // var dataset;
+            // d3.json("test.json", function(json) {
+            //     console.log(json);  //Log output to console
+            //     dataset = json;    //Once loaded, copy to dataset.
+            // });
+            // var year = /{x}d\{4}/;
+
+            // function finddate(d){
+            //     var year=/{x}d\{4}/
+            // };
+            // var year = parseInt(date);
+            // parseInt( year [, dataset] )
+            
+            var svg = d3.select("body")
+            .append("svg")
+            .attr("width", 2000)
+            .attr("height", 2000);
+
+
+
+            // d3.select("body").selectAll("p")
+            //     .data(dataset)
+            //     .enter()
+            //     .append("p")
+            //     .text(function(d) {
+            //         return "Year " + d.date; 
+            //     });
+
+        var circles = svg.selectAll("circle")
+            .data(dataset)
+            .enter()
+            .append("circle")
+            // .attr("cx", 5)
+            .attr("cx", function(d){return d.date/10;
+                })
+            .attr("cy", 500)
+            .attr("r", 20);
+            // .attr("cx", function(d) {return x(d.date)});
+
+        // var circles = svg.selectAll("circle")
+        //     .data(dataset)
+        //     .enter()
+        //     .append("circle")
+        //     // .attr("cx", 5)
+        //     .attr("cx", function(d){return d.date/10;
+        //         })
+        //     .attr("cy", 500)
+        //     .attr("r", 20);
+        //     // .attr("cx", function(d) {return x(d.date)});
+
+
+
+
+
+            // var rects = svg.selectAll("rectangles")
+            //     .data(dataset)
+            //     .enter()
+            //     .append("rect")
+            //     .attr("class","rect");
+
+            // var rects = svg.selectAll("#rect")
+            //     .data(dataset)
+            //     .enter()
+            //     .append("rect")
+            //     .attr("class","rect")
+            //     .attr("y", 200)
+            //     .attr("width",300)
+            //     .attr("height", 300)
+            //     .attr("x", function(d){return dataset[0]+200
+            //     })
+            //     .style("fill", "steelblue");
+
+
+            // var rects = svg.selectAll("rectangles")
+            //     .enter()
+            //     .append("rect")
+            //     .attr("class","rect");
+
+            // var rects = svg.selectAll("#rect")
+            //     .enter()
+            //     .append("rect")
+            //     .attr("class","rect")
+            //     .attr("y", 200)
+            //     .attr("width",300)
+            //     .attr("height", 300)
+            //     .attr("x", 200);
+
+
+            // dataset.collection1[1].date
+            // dataset.date
+          </script>
+    </body>
+</html>
