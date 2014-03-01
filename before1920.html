@@ -90,7 +90,7 @@
         </div>
 
       <script type="text/javascript">
-
+        // calls json file
         d3.json(
           'http://127.0.0.1:8000/before1920.json',
           function (jsondata) {
@@ -102,30 +102,41 @@
             .append("svg")
             .attr("class", "full")
             .attr("height", h)
-            .attr("width", w)
-            ;
+            .attr("width", w);
 
+            // image sizes
             var imageWidth = document.body.clientWidth / 13;
             var imageHeight = 750 / 10;
-                
+
+            // images
             var imgs = svg.selectAll("image")
                 .data(jsondata)
                 .enter()
                 .append("svg:image")
                 .attr("xlink:href", function(d) {return d.pic.src;
                 })
+
+                // wraps images in svg container
                 .attr("x", function (d,i){return (i * document.body.clientWidth / 12) - (document.body.clientWidth * Math.floor(i/12))})
                 .attr("y", function(d,i){return Math.floor(i/12) * 1000 /12})
                 .attr("width", imageWidth)
                 .attr("height", imageHeight)
-                .on('click', function(d, i) {
-                  window.location.href = d.pic.src;
-                })
+
+                // clicking on image links to larger image on MoMA site
                 // .on('click', function(d, i) {
-                //   var xPosition = parseFloat(d3.select(this).attr("x"));
-                //   var yPosition = parseFloat(d3.select(this).attr("y"));
-                //   var artist = d.date
-                //   // var search = jsondata.indexOf("1900")
+                //   window.location.href = d.pic.src;
+                // })
+
+                // find matching artists
+                .on('click', function(d, i) {
+                  var xPosition = parseFloat(d3.select(this).attr("x"));
+                  var yPosition = parseFloat(d3.select(this).attr("y"));
+                  var artist = d.artist.text
+                  // var search = jsondata.indexOf(artist)   
+                  console.log(artist)
+                })
+
+                // different way to find matching strings?
                 //   containsRegex(a, regex){
                 //     for(var i = 0; i < a.length; i++) {
                 //       int pos = a[i].search(regex);
@@ -136,8 +147,7 @@
                 //     return null;
                 //   }
                 //   var search = containsRegex(jsondata, /1900/)
-                //   console.log(search)
-                // })
+
 
                 .on("mouseover", function(d) {
                   var xPosition = parseFloat(d3.select(this).attr("x"));
