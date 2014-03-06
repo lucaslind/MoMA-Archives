@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Sketch 1</title>
+        <title>MoMA Archives - before 1920</title>
         <script type="text/javascript" src="http://d3js.org/d3.v3.min.js">
         </script>
         <style type="text/css">
@@ -12,13 +12,15 @@
             height: auto;
             padding: 5px;
             color:black;
-            background-color: white;
-/*          -webkit-border-radius: 10px;
+            background-color:white;
+/*            background-color: rgba(0,0,0,0);
+*//*            background-opacity: 0.5;
+*//*          -webkit-border-radius: 10px;
             -moz-border-radius: 10px;
-            border-radius: 10px;*/
-            -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+/*            -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
             -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);*/
             pointer-events: none;
           }
 
@@ -29,6 +31,7 @@
           #tooltip p {
             margin: 0;
             font-family: sans-serif;
+            color:black;
             font-size: 16px;
             line-height: 20px;
           }
@@ -66,6 +69,25 @@
           a:link {text-decoration:none;}
           a:visited {text-decoration:none;}
           a:hover {text-decoration:underline;}
+          /* Hoverbox */
+          #hoverbox {
+            pointer-events: none;
+          }
+          #hoverbox.hidden {
+            display: none;
+          }
+          #hoverbox .title {
+            fill: white;
+            font-family: sans-serif;
+            text-transform: uppercase;
+          }
+          #hoverbox .artworks {
+            fill: white;
+          }
+          #hoverbox rect.background {
+            fill: black;
+            position: fixed;
+          }
 
         </style>
     </head>
@@ -85,14 +107,13 @@
           <a class="links" href="1970s.html"><strong>1970s</strong></a>
           <a class="links" href="1980s.html"><strong>1980s</strong></a>
           <a class="links" href="1990s.html"><strong>1990s</strong></a>
-          <a class="links" href="2000s.html"><strong>2000s</strong></a>
           <a class="links" href="all.html"><strong>All</strong></a>
         </div>
 
       <script type="text/javascript">
         // calls json file
         d3.json(
-          'http://127.0.0.1:8000/before1920.json',
+          'before1920.json',
           function (jsondata) {
 
             var w = "100%";
@@ -113,12 +134,14 @@
                 .data(jsondata)
                 .enter()
                 .append("svg:image")
+                .attr("class", "imgs")
                 .attr("xlink:href", function(d) {return d.pic.src;
                 })
 
                 // wraps images in svg container
                 .attr("x", function (d,i){return (i * document.body.clientWidth / 12) - (document.body.clientWidth * Math.floor(i/12))})
-                .attr("y", function(d,i){return Math.floor(i/12) * 1000 /12})
+                .attr("y", function(d,i){return Math.floor((i+12)/12) * 1000 /12})
+                .attr("opacity", 1)
                 .attr("width", imageWidth)
                 .attr("height", imageHeight)
 
@@ -128,26 +151,14 @@
                 // })
 
                 // find matching artists
-                .on('click', function(d, i) {
+                .on('click', function(d) {
                   var xPosition = parseFloat(d3.select(this).attr("x"));
                   var yPosition = parseFloat(d3.select(this).attr("y"));
-                  var artist = d.artist.text
+                  var artist = d.artist.text;
                   // var search = jsondata.indexOf(artist)   
-                  console.log(artist)
+                  console.log(artist);
+                  changeOpacity(artist);
                 })
-
-                // different way to find matching strings?
-                //   containsRegex(a, regex){
-                //     for(var i = 0; i < a.length; i++) {
-                //       int pos = a[i].search(regex);
-                //       if(pos > -1){
-                //         return [i, pos];
-                //       }
-                //     }
-                //     return null;
-                //   }
-                //   var search = containsRegex(jsondata, /1900/)
-
 
                 .on("mouseover", function(d) {
                   var xPosition = parseFloat(d3.select(this).attr("x"));
@@ -168,15 +179,67 @@
                     .text(d.pic.alt)
                     ;
 
-                    d3.select("#tooltip").classed("hidden", false);})
+                  d3.select("#tooltip").classed("hidden", false);})
 
                   .on("mouseout", function() {
                     d3.select("#tooltip").classed("hidden", true);});
-                ;
+                  ;
 
-              console.log(jsondata);
-              var dataset = jsondata.map(function(d) { return d.Value; });
-              console.log(dataset);
+                  var dataset = jsondata.map(function(d) { return d.Value; });
+
+                  function changeOpacity(artistClicked){ //this is passing the variable to this other function
+                    console.log(artistClicked) //see we still have the same variable, we are renaming it so we note its context - it was the artist clicked on
+
+                    d3.selectAll('.imgs') //select all the images, whom i gave the class of "hey"
+                      .transition()
+                      .duration(200)
+                      .attr("opacity", function(d,i){
+                      if(artistClicked===jsondata[i].artist.text){ //if the artist clicked is the same as any of the other artists in the whole data file
+                      var picName = jsondata[i].pic.alt;
+                        updateHoverbox(artistClicked, jsondata[i].pic.alt)
+                        console.log(jsondata[i].artist.text+jsondata[i].pic.alt); //log that and the relevant paintings so we can make sure it truly is matching artworks
+                        return 1; //change the opacity to 1
+                        }  
+                        else {
+                          return .2; //if the artist is not the same, make the opacity .1
+                        }    
+                      });
+                    }
+                //Setup hover box
+                  hoverbox = svg.append("g")
+                    .attr("id", "hoverbox")
+                    .attr("class", "hidden")
+                    .attr("transform", "translate(4,0)");
+                //make a background rectangle to put the text on
+                  hoverbox.append("rect")
+                    .attr("class", "background")
+                // .attr("x", 13 * imageWidth - 100)
+                    .attr("x", 0)
+                    .attr("y", 0)
+                    .attr("width", 400) //change these to whatever variables you want
+                    .attr("height", 50); //change these to whatever variables you want
+                //prepare with empty slots for text
+                  hoverbox.append("text")
+                    .attr("class", "title")
+                    .attr("x", 5)
+                    .attr("y", 20)
+                    .text("");
+                  hoverbox.append("text")
+                    .attr("class", "artworks")
+                    .attr("x", 5)
+                    .attr("y", 20)
+                    .text("");
+                  //here we add to the hoverbox with the data from our clicking...
+                  var updateHoverbox = function(artist, pic) {
+                    hoverbox.select(".title").text(artist); //coopt the css class title and put in artist
+                    // hoverbox.select(".artworks").text(pic); //coopt the css class pic and put in artwork
+                    console.log(pic)
+                    hoverbox.classed("hidden", false); //show the hoverbox
+                  };
+                  //you'll want something like - if you click out of the painting, or if you exit mouseover, hidehoverbox...
+                  var hideHoverbox = function() {
+                    hoverbox.classed("hidden", true);
+                  };
             });
           </script>
     </body>
